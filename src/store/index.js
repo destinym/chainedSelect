@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
-import {setCookie, getCookie} from '@/utils/cookie'
+import {setCookie, getCookie, clearCookie} from '@/utils/cookie'
 import {getProjectList} from '@/api/project'
 
 Vue.use(Vuex)
@@ -17,6 +17,10 @@ const store = new Vuex.Store({
     SET_PROJECT (state, data) {
       state.project = data
       setCookie(project, data)
+    },
+    CLR_PROJECT (state) {
+      state.prject = ''
+      clearCookie(project)
     }
   },
   actions: {
@@ -29,6 +33,10 @@ const store = new Vuex.Store({
         commit('SET_PROJECT', getCookie(project))
       })
     }
+  },
+  getters: {
+    projectList: state => state.projectList,
+    globalProject: state => state.project
   }
 })
 
