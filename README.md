@@ -1,5 +1,7 @@
 # chained-select
 
+一个基于vue + element 的链式选择 模板
+
 > A Vue.js project
 
 ## Build Setup
